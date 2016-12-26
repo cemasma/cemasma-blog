@@ -5,7 +5,7 @@ email: dev.cemas@gmail.com
 description: > # this means to ignore newlines until "baseurl"
   Ana odağı teknoloji ağırlıklı olmak üzere, Cem Asma'nın kişisel blogu.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://cemasma.github
+url: "https://cemasma.github.io"
 
 github_username:  cemasma
 paginate: 5
