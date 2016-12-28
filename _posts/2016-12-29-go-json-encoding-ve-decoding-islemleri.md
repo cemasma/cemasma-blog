@@ -14,11 +14,13 @@ import "encoding/json"
 Bu paketin içeriğine de şuradan ulaşabilirsiniz: https://golang.org/pkg/encoding/json/
 
 Go dilinde JSON encode işlemi için bu paketin Marshal fonksiyonunu kullanırız. Arayüzü aşağıdaki gibidir.
+
 ```go
 	func Marshal(v interface{}) ([]byte, error)
 ```
 
 Bu fonksiyonun bir de JSON girintilerini ayarlamak için MarshalIndent versiyonu vardır.
+
 ```go
 	func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
 ```
@@ -60,7 +62,7 @@ func main() {
 
 ### Çıktı
 
-```
+```javascript
 [{"Name":"Ulsambre","Surname":"Tortomish","Age":27},{"Name":"Vincent","Surname":"Norton","Age":30}] 
 
 
@@ -80,7 +82,8 @@ func main() {
 ## Örnek Decode
 
 Decode işlemi için aşağıdaki JSON'ı kullanacağız ve buna göre veri yapımızı belirleyeceğiz.
-```
+
+```javascript
 [
     {
       "isim" : "Ulsambre",
