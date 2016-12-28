@@ -60,7 +60,7 @@ func main() {
 
 ### Çıktı
 
-```json
+```
 [{"Name":"Ulsambre","Surname":"Tortomish","Age":27},{"Name":"Vincent","Surname":"Norton","Age":30}] 
 
 
@@ -80,7 +80,7 @@ func main() {
 ## Örnek Decode
 
 Decode işlemi için aşağıdaki JSON'ı kullanacağız ve buna göre veri yapımızı belirleyeceğiz.
-```json
+```
 [
     {
       "isim" : "Ulsambre",
