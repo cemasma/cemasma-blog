@@ -5,27 +5,25 @@ date:   2016-12-29 00:27:16
 categories: go
 ---
 
-Go dilinde bir JSON'ın encoding ve decoding işlemleri için json paketi kullanılır. Bu paket aşağıdaki gibi import edilir.
 
+Go dilinde bir JSON'ın encoding ve decoding işlemleri için [json](https://golang.org/pkg/encoding/json/) paketi ve bu işlemler için paket dahilinde Marshal ve Unmarshal fonksiyonları vardır. Marshal fonksiyonu gönderdiğimiz veriyi JSON'a çevirip bunu byte dizisi şeklinde döner. Buradan dönen JSON girintisizdir. Bunun için girintilerini de ayarlayabileceğimiz MarshalIndent fonksiyonu vardır. Unmarshal fonksiyonuna ise byte dizisi şeklindeki JSON'ı ve bu JSON'ın giydirileceği değişkeni adresiyle birlikte göndeririz.
+
+
+#### Marshal Fonksiyonu
 ```go
-import "encoding/json"
+func Marshal(v interface{}) ([]byte, error)
 ```
 
-Bu paketin içeriğine de şuradan ulaşabilirsiniz: https://golang.org/pkg/encoding/json/
-
-Go dilinde JSON encode işlemi için bu paketin Marshal fonksiyonunu kullanırız. Arayüzü aşağıdaki gibidir.
-
+#### MarshalIndent Fonksiyonu
 ```go
-	func Marshal(v interface{}) ([]byte, error)
+func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
 ```
-
-Bu fonksiyonun bir de JSON girintilerini ayarlamak için MarshalIndent versiyonu vardır.
-
+#### Unmarshal Fonksiyonu
 ```go
-	func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
+func Unmarshal(data []byte, v interface{}) error
 ```
-
-## Örnek Encode
+<br><br>
+# Encode
 
 ```go
 package main
@@ -60,11 +58,10 @@ func main() {
 
 ```
 
-### Çıktı
+#### Encode Çıktısı
 
 ```javascript
 [{"Name":"Ulsambre","Surname":"Tortomish","Age":27},{"Name":"Vincent","Surname":"Norton","Age":30}] 
-
 
 [
  {
@@ -78,8 +75,8 @@ func main() {
   "Age": 30
  }
 ```
-
-## Örnek Decode
+<br><br>
+# Decode
 
 Decode işlemi için aşağıdaki JSON'ı kullanacağız ve buna göre veri yapımızı belirleyeceğiz.
 
@@ -148,7 +145,7 @@ func getJSON() []byte {
 }
 ```
 
-### Çıktı
+#### Decode Çıktısı
 
 ```go
 {Ulsambre Tortomish 27}

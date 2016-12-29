@@ -15,14 +15,14 @@ html {
 
 @media (min-width: 34em) {
     html {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
 .wrapper {
     margin: 0 auto;
     padding: 0 1em;
-    max-width: 48em; /* using max-width to not let the reading column width get too wide */
+    max-width: 60em; /* using max-width to not let the reading column width get too wide */
 }
 
 @media (min-width: 34em) {
@@ -122,7 +122,7 @@ h1 {
 =======================================*/
 .post {
     padding-bottom: 4em;
-    font-size: 1.25em;
+    font-size: 16px;
     line-height: 1.6;
 }
 
