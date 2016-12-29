@@ -80,7 +80,6 @@ figure {
     overflow: hidden;
     padding: 2em 0 .5em 0;
     margin-bottom: 2em;
-    text-size: 1.25em;
 }
 
 @media (min-width: 34em) {
@@ -97,7 +96,7 @@ h1 {
 .site-title {
     text-decoration: none;
     font-weight: 300;
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 
 .site-nav a {
@@ -106,6 +105,7 @@ h1 {
     padding-right: 1.5em;
     padding-bottom: 1.5em;
     text-transform: uppercase;
+    text-size: 1.25em
 }
 
 .site-nav a:hover {
@@ -116,7 +116,7 @@ h1 {
     margin: 0 0 1.5em 0;
     font-weight: 300;
     color: $gray4;
-    font-size: .875em;
+    font-size: 1em;
 }
 
 /*=======================================
