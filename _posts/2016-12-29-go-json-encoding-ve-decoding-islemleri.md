@@ -6,22 +6,16 @@ categories: go
 ---
 
 
-Go dilinde bir JSON'ın encoding ve decoding işlemleri için [json](https://golang.org/pkg/encoding/json/) paketi ve bu işlemler için paket dahilinde Marshal ve Unmarshal fonksiyonları vardır. Marshal fonksiyonu gönderdiğimiz veriyi JSON'a çevirip bunu byte dizisi şeklinde döner. Buradan dönen JSON girintisizdir. Bunun için girintilerini de ayarlayabileceğimiz MarshalIndent fonksiyonu vardır. Unmarshal fonksiyonuna ise byte dizisi şeklindeki JSON'ı ve bu JSON'ın giydirileceği değişkeni adresiyle birlikte göndeririz.
+Go dilinde bir JSON'ın encoding ve decoding işlemleri için [json](https://golang.org/pkg/encoding/json/) paketi ve bu işlemler için paket dahilinde Marshal ve Unmarshal fonksiyonları vardır. Marshal fonksiyonu gönderdiğimiz veriyi JSON'a çevirip bunu byte dizisi şeklinde döner. Buradan dönen JSON girintisizdir. Bunun için girintilerini de ayarlayabileceğimiz MarshalIndent fonksiyonu vardır. Tabi isterseniz ayriyeten bulunan Indent fonksiyonu da sonradan girinti eklemenizi sağlayabilir. Unmarshal fonksiyonuna ise byte dizisi şeklindeki JSON'ı ve bu JSON'ın giydirileceği değişkeni adresiyle birlikte göndeririz. Encoding ve Decoding yaparken veri yapılarımızı JSON veri yapısına uygun olabilecek şekilde hazırlamalıyız. 
+<br><br>
+Encode örneğinde veri yapısında JSON etiketleri kullanmadım fakat eğer Decode örneğindeki gibi struct'ta JSON etiketleri kullanılırsa oluşturulan JSON'ın keyleri de belirlenen etiketler olur. Eğer belirlenmezse bu keyler değişken isimleri olur. Decode ederken de eğer değişken isimleri ile JSON keyleri tutuşuyor ise ek olarak bu değişkenlerin sağında etiket belirlememize gerek yok. Eğer değişken isimleri farklı olacak ise o zaman hangi keyin hangi değişkenle ilişkileneceğini belirlemek için Decode örneğindeki gibi etiketleri kullanırız.
 
-
-#### Marshal Fonksiyonu
+#### Fonksiyonlar
 ```go
 func Marshal(v interface{}) ([]byte, error)
-```
-
-#### MarshalIndent Fonksiyonu
-```go
 func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
-```
-
-#### Unmarshal Fonksiyonu
-```go
 func Unmarshal(data []byte, v interface{}) error
+func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error
 ```
 
 <br><br>
@@ -88,8 +82,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"encoding/json"
 )
 
@@ -121,8 +113,8 @@ func main() {
 		}
 	]`)
 	
-	// Aktaracağımı yapacağım değişkeni önceden tanımlamamız gerekiyor.
-	// JSON verisi bir array içerisinde dataları içerdiğinden bu şekilde tanımlıyorum.
+	// Aktarımı yapacağımız değişkeni önceden tanımlamamız gerekiyor.
+	// Bu değişken JSON'daki veri ile uyuşabilecek bir yapıya sahip olmalı
 	var personSlice []Person
 	
 	// Oluşturduğum değişkeni adresiyle birlikte gönderiyorum ve
