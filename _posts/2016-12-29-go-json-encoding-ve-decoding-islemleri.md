@@ -25,6 +25,7 @@ func Unmarshal(data []byte, v interface{}) error
 ```
 
 <br><br>
+
 # Encode
 
 ```go
@@ -77,7 +78,9 @@ func main() {
   "Age": 30
  }
 ```
+
 <br><br>
+
 # Decode
 
 Decode işlemi için aşağıdaki JSON'ı kullanacağız ve buna göre veri yapımızı belirleyeceğiz.
