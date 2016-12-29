@@ -83,28 +83,6 @@ func main() {
 
 # Decode
 
-Decode işlemi için aşağıdaki JSON'ı kullanacağız ve buna göre veri yapımızı belirleyeceğiz.
-
-```javascript
-[
-    {
-      "isim" : "Ulsambre",
-      "soyisim" : "Tortomish",
-      "yas" : 27
-    },
-    {
-      "isim" : "Vincent",
-      "soyisim" : "Norton",
-      "yas" : 30
-    },
-    {
-      "isim" : "Uvuveveve Enyetveveve",
-      "soyisim" : "Umubabem Osas",
-      "yas" : 19
-    }
-]
-```
-
 ```go
 package main
 
@@ -117,19 +95,36 @@ import (
 
 // Burada JSON versine göre bir veri yapısı oluşturdum.
 // Ve bu yapıda hangi keydeki verinin hangi niteliğe aktarılacağını da
-// etiketler aracılığı ile `json:"isim"` şeklinde belirtiyorum.
+// etiketler aracılığı ile `json:"keyismi"` şeklinde belirtiyorum.
 type Person struct {
 	Name string 		`json:"isim"`
 	Surname string		`json:"soyisim"`
-	Age int				`json:"yas"`
+	Age int			`json:"yas"`
 }
 
 func main() {
-	bytedJson := getJSON()
+	bytedJson := []byte(`[
+		{
+		  "isim" : "Ulsambre",
+		  "soyisim" : "Tortomish",
+		  "yas" : 27
+		},
+		{
+		  "isim" : "Vincent",
+		  "soyisim" : "Norton",
+		  "yas" : 30
+		},
+		{
+		  "isim" : "Uvuveveve Enyetveveve",
+		  "soyisim" : "Umubabem Osas",
+		  "yas" : 19
+		}
+	]`)
 	
 	// Aktaracağımı yapacağım değişkeni önceden tanımlamamız gerekiyor.
 	// JSON verisi bir array içerisinde dataları içerdiğinden bu şekilde tanımlıyorum.
 	var personSlice []Person
+	
 	// Oluşturduğum değişkeni adresiyle birlikte gönderiyorum ve
 	// değişkenime aktarma işlemi yapılıyor.
 	json.Unmarshal(bytedJson, &personSlice)
@@ -137,16 +132,6 @@ func main() {
 	for _, value := range personSlice {
 		fmt.Println(value)
 	}
-}
-
-// Bu fonksiyon kaynağımdan JSON'ı çekiyor
-func getJSON() []byte {
-	jsonURL := "https://gist.githubusercontent.com/cemasma/f3e157f048ef54166bdeaf9c1ab5489a/raw/6a142e3540a60ee3e55368a1c613df3f5f4eaade/test0.json"
-	resp, _ := http.Get(jsonURL)
-	
-	defer resp.Body.Close()
-	body, _ := ioutil.ReadAll(resp.Body)
-	return body
 }
 ```
 
