@@ -18,10 +18,12 @@ func Marshal(v interface{}) ([]byte, error)
 ```go
 func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
 ```
+
 #### Unmarshal Fonksiyonu
 ```go
 func Unmarshal(data []byte, v interface{}) error
 ```
+
 <br><br>
 # Encode
 
