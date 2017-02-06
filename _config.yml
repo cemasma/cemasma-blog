@@ -7,7 +7,7 @@ relative_permalinks: true
 # Setup
 title:               Cem Asma
 tagline:             'dev.cemas@gmail.com'
-description:         'Ana odağı teknoloji ağırlıklı olmak üzere, Cem Asma'nın kişisel blogu.'
+description:         "Ana odağı teknoloji ağırlıklı olmak üzere, Cem Asma'nın kişisel blogu."
 url:                 https://cemasma.github.io
 baseurl:             ''
 paginate:            5
