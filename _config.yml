@@ -8,7 +8,7 @@ title:               Cem Asma
 tagline:             'dev.cemas@gmail.com'
 description:         "Ana odağı teknoloji ağırlıklı olmak üzere, Cem Asma'nın kişisel blogu."
 url:                 https://cemasma.github.io
-baseurl:             ''
+baseurl:             'https://cemasma.github.io/'
 paginate:            5
 
 # About/contact
