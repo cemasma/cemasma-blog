@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Go - JSON Encoding ve Decoding İşlemleri"
-date:   2016-12-29 00:27:16
 ---
 
 
