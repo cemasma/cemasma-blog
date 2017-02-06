@@ -1,20 +1,22 @@
-# Site settings
-title: Cem Asma
-tagline: dev.cemas@gmail.com
-email: dev.cemas@gmail.com
-description: > # this means to ignore newlines until "baseurl"
-  Ana odağı teknoloji ağırlıklı olmak üzere, Cem Asma'nın kişisel blogu.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://cemasma.github.io"
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
 
-github_username:  cemasma
-paginate: 5
+# Setup
+title:               Cem Asma
+tagline:             'dev.cemas@gmail.com'
+description:         'Ana odağı teknoloji ağırlıklı olmak üzere, Cem Asma'nın kişisel blogu.'
+url:                 https://cemasma.github.io
+baseurl:             ''
+paginate:            5
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-sass:
-    style: :compressed
+# About/contact
+author:
+  name:              Cem Asma
+  url:               https://github.com/cemasma
+  email:             dev.cemas@gmail.com
 
-# Gems
-gems: [jekyll-paginate]
+# Custom vars
+version:             1.0.0
