@@ -139,6 +139,11 @@ h1, h2, h3, h4, h5, h6 {
  * Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
  */
 
+ .new-nav {
+	 display: inline-block;
+	 float: right;
+ }
+ 
 /* Style and "hide" the sidebar */
 .sidebar {
   position: fixed;
